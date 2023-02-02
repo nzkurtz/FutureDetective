@@ -4,33 +4,37 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    [Header("Visual Cue")]
+    [SerializeField] private GameObject visualCue;
 
-    public GameObject interactable;
+    [Header("Ink JSON")]
+    [SerializeField] private TextAsset inky;
+
     private bool playerInRange;
+
     private void Awake()
     {
         playerInRange = false;
-        interactable.SetActive(false);
+        visualCue.SetActive(false);
     }
+
     private void Update()
     {
-        if (playerInRange ) //&& !DialogueManager.GetInstance().dialogueIsPlaying
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            interactable.SetActive(true);
-            // if (Input.GetKeyDown("space"))
-            // {
-            //    Debug.Log("interact"); 
-            //     DialogueManager.GetInstance().EnterDialogueMode(inky);
+            visualCue.SetActive(true);
+            if (Input.GetKeyDown("space"))
+            {
+               Debug.Log("interact"); 
+                DialogueManager.GetInstance().EnterDialogueMode(inky);
                 
-            // }
+            }
         }
         else
         {
-            interactable.SetActive(false);
+            visualCue.SetActive(false);
         }
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -47,5 +51,4 @@ public class DialogueTrigger : MonoBehaviour
             playerInRange = false;
         }
     }
-    
 }
