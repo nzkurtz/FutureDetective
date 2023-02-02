@@ -6,17 +6,45 @@ public class DialogueTrigger : MonoBehaviour
 {
 
     public GameObject interactable;
-    void Awake(){
+    private bool playerInRange;
+    private void Awake()
+    {
+        playerInRange = false;
         interactable.SetActive(false);
     }
-    void OnTriggerEnter2D(Collider2D collider){
-        interactable.SetActive(true);
-        
-    }
-    void OnTriggerStay2D(Collider2D collider){
-        if(Input.GetKeyDown(KeyCode.E)){
+    private void Update()
+    {
+        if (playerInRange ) //&& !DialogueManager.GetInstance().dialogueIsPlaying
+        {
+            interactable.SetActive(true);
+            // if (Input.GetKeyDown("space"))
+            // {
+            //    Debug.Log("interact"); 
+            //     DialogueManager.GetInstance().EnterDialogueMode(inky);
+                
+            // }
+        }
+        else
+        {
             interactable.SetActive(false);
-            Debug.Log("hi");
+        }
+    }
+
+
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Player")
+        {
+            playerInRange = false;
         }
     }
     
