@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(DialogueManager.GetInstance().dialogueIsPlaying){
+            return;
+        }
         rb.velocity = moveDirection.normalized * moveSpeed;
     }
 

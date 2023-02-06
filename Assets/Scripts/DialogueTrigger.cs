@@ -23,7 +23,7 @@ public class DialogueTrigger : MonoBehaviour
         if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             visualCue.SetActive(true);
-            if (Input.GetKeyDown("space"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                Debug.Log("interact"); 
                 DialogueManager.GetInstance().EnterDialogueMode(inky);
