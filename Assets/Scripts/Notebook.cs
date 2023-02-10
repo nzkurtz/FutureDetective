@@ -8,6 +8,11 @@ public class Notebook : MonoBehaviour
 {
     public TextMeshProUGUI title, evidence;
     
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject); 
+    }
+
     public void SetTitle(string titleText)
     {
         title.text = titleText;
