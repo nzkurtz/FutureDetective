@@ -1,0 +1,1 @@
+The dead body of the victim is on the floor. There are deep cuts all over his back.
