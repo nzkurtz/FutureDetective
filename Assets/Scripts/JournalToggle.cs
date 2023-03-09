@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextHide : MonoBehaviour
+public class JournalToggle : MonoBehaviour
 {
 
-    public GameObject text;
+    public GameObject notebook;
     private bool toggleBool;
     // Start is called before the first frame update
     void Awake()
     {
-        text.SetActive(false);
+        notebook.SetActive(false);
     }
 
-    public void textAppear(){
+    public void ToggleJournal(){
         toggleBool = !toggleBool;
-        text.SetActive(toggleBool);
+        notebook.SetActive(toggleBool);
     }
 }
