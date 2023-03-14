@@ -10,10 +10,10 @@ public class Notebook : MonoBehaviour
     
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject); 
+         
     }
 
-    public void SetTitle(string titleText)
+    public void SetName(string titleText)
     {
         title.text = titleText;
     }

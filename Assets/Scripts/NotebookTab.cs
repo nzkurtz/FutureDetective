@@ -9,13 +9,13 @@ public class NotebookTab : MonoBehaviour
 
     private void Awake()
     {
-        notebook.SetTitle(page.title);
+        notebook.SetName(page.title);
         notebook.SetEvidence(page.evidence);
     }
 
     public void Clicked()
     {
-        notebook.SetTitle(page.title);
+        notebook.SetName(page.title);
         notebook.SetEvidence(page.evidence);
     }
 }
