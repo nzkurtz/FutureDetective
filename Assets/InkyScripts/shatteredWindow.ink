@@ -1,0 +1,1 @@
+The glass on this window seems to have been shattered. There seems to be some shreds of clothing left behind!
