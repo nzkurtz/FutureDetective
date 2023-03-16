@@ -1,20 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class SceneLoad : MonoBehaviour
 {
-    public string level;
+    public string level;    
  
-    
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        
-        if (collider.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene(level);
-           
-        }
+        GameManager.gameManager.LoadScene3(level);
     }
 }
