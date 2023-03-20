@@ -1,0 +1,1 @@
+The footprints seem large and the tread looks like a square grid.

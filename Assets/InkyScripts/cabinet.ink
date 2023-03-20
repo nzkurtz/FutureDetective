@@ -1,0 +1,1 @@
+The cabinet has deep slashes on its front side.
