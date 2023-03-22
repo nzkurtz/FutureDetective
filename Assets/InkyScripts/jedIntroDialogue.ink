@@ -1,23 +1,23 @@
 Hello detective.
-* Hi, who are you?
+* [Hi, who are you?]
     ->who
-* Hi, where were you on the night of the crime?
+* [Hi, where were you on the night of the crime?]
     ->where
-*End conversation
+*[End conversation]
     ->END
 
 ===who===
 My name is Jed. I work as a car mechanic in town.
-    *Where were you on the night of the crime?
+    *[Where were you on the night of the crime?]
         ->where1
-    *End conversation
+    *[End conversation]
         ->END
 
 ===where===
 On the night of the crime I was at the shop repairing a car. I didn't come home until later in the night.
-    *Who are you?
+    *[Who are you?]
         ->who1
-    *End conversation
+    *[End conversation]
         ->END
 ===who1===
 My name is Jed. I work as a car mechanic in town.

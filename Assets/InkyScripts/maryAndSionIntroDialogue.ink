@@ -1,21 +1,21 @@
 Please help us detective, something horrible happened in the neighborhood.
-    *Who are you guys?
+    *[Who are you guys?]
         ->who
-    *Where were you on the night of the crime?
+    *[Where were you on the night of the crime?]
         ->where
-    *End conversation
+    *[End conversation]
         -> END
 ===who===
 We are Mary and Sion, neighbors of Wilmer. 
-    *Where were you on the night of the crime?
+    *[Where were you on the night of the crime?]
         ->where
-    *End conversation
+    *[End conversation]
         ->END
 ===where===
 On the night of the crime we were asleep in our room.
-    *Did you hear anything?
+    *[Did you hear anything?]
         ->hear
-    *End conversation
+    *[End conversation]
         ->END
 ===hear===
 We heard a struggle and wood breaking, but that's about it.
