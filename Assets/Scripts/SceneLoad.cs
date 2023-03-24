@@ -6,9 +6,12 @@ using UnityEngine;
 public class SceneLoad : MonoBehaviour
 {
     public string level;    
- 
+    public GameObject door;
+    public bool playerDestroy;
+    
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        GameManager.gameManager.LoadScene3(level);
+        GameManager.gameManager.StartCoroutine(GameManager.gameManager.LoadScene3(level, door.name, playerDestroy));
     }
 }
