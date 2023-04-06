@@ -56,7 +56,18 @@ public class GameManager : MonoBehaviour
         else if(doorName == "JoshuaJudieExit"){
             teleport = GameObject.Find("JoshuaJudieFront").transform.position;
         }
-        
+        else if(doorName == "JacklynDoor"){
+            teleport = GameObject.Find("JacklynWelcome").transform.position;
+        }
+        else if(doorName == "JacklynExit"){
+            teleport = GameObject.Find("JacklynFront").transform.position;
+        }
+        else if(doorName == "JedDoor"){
+            teleport = GameObject.Find("JedWelcome").transform.position;
+        }
+        else if(doorName == "JedExit"){
+            teleport = GameObject.Find("JedFront").transform.position;
+        }
         else {teleport =  GameObject.Find("haroldWelcome").transform.position; Debug.Log("harold");}
         Debug.Log(teleport);
         player = GameObject.FindGameObjectsWithTag("Player")[0];
