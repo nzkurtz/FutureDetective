@@ -1,32 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DialogueTrigger : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class PastSceneTeleport : MonoBehaviour
 {
-    [Header("Visual Cue")]
+
+     [Header("Visual Cue")]
     [SerializeField] private GameObject visualCue;
-
-    [Header("Ink JSON")]
-    [SerializeField] private TextAsset inky;
-
     private bool playerInRange;
-   
-    private void Awake()
-    {
-        playerInRange = false;
-        visualCue.SetActive(false);
-    }
+    public string level;
 
     private void Update()
     {
-        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
+        if (playerInRange)
         {
             visualCue.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-               Debug.Log("interact"); 
-                DialogueManager.GetInstance().EnterDialogueMode(inky);
+               SceneManager.LoadScene(level);
                 
             }
         }
@@ -38,7 +29,7 @@ public class DialogueTrigger : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+       private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {

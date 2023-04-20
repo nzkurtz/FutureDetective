@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HaroldHouse.unity
     guid: f493861c36fba5542a547b53e7964412
+  - enabled: 1
+    path: Assets/Scenes/PastHaroldHouse.unity
+    guid: f86a2181a1d58ec41a8026533fb2220e
+  - enabled: 1
+    path: Assets/Scenes/PastScene.unity
+    guid: 05cb229996fdd3041b4ddb31e48f4bf0
   m_configObjects: {}
