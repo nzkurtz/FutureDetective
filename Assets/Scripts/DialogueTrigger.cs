@@ -11,11 +11,19 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private TextAsset inky;
 
     private bool playerInRange;
+    public static int neighborsTalkedTo = 0;
+    private GameObject ghost;
    
     private void Awake()
     {
         playerInRange = false;
         visualCue.SetActive(false);
+        ghost = GameObject.Find("ghost");
+    }
+
+    private void Start()
+    {
+        ghost.SetActive(false);
     }
 
     private void Update()
@@ -27,6 +35,7 @@ public class DialogueTrigger : MonoBehaviour
             {
                Debug.Log("interact"); 
                 DialogueManager.GetInstance().EnterDialogueMode(inky);
+                neighborsTalkedTo += 1;
                 
             }
         }
@@ -34,7 +43,9 @@ public class DialogueTrigger : MonoBehaviour
         {
             visualCue.SetActive(false);
         }
-
+        if (neighborsTalkedTo >= 5){
+            ghost.SetActive(true);
+        }
         
     }
 

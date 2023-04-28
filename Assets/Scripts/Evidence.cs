@@ -12,13 +12,11 @@ public class Evidence : MonoBehaviour
 
     private Notebook notebook;
 
-    private void Start()
-    {
-        notebook = Dontdestroynotebook.notebook.GetComponentInChildren<Notebook>();
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        notebook = Dontdestroynotebook.notebook.gameObject.GetComponent<Notebook>();
+        Debug.Log(notebook.gameObject + "HI");
+        
         if(!interactedWith)
         {
             if(!UVLight)
