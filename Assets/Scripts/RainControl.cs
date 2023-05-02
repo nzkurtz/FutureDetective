@@ -12,6 +12,12 @@ public class RainControl : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "HaroldHouse"){
             rain.SetActive(false);
         }
+        else if(SceneManager.GetActiveScene().name == "PastScene"){
+            rain.SetActive(false);
+        }
+        else if(SceneManager.GetActiveScene().name == "PastHaroldHouse"){
+            rain.SetActive(false);
+        }
         else{
             rain.SetActive(true);
         }
