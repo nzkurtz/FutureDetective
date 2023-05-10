@@ -21,13 +21,13 @@ public class Evidence : MonoBehaviour
         {
             if(!UVLight)
             {
-                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n"+evidence);
+                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n\n"+evidence);
                 notebook.tabs[notebookIndex].GetComponent<NotebookTab>().Clicked();
             }
         }
         else if(UVLight){
             if(UV.activeInHierarchy){
-                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n"+evidence);
+                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n\n"+evidence);
                 notebook.tabs[notebookIndex].GetComponent<NotebookTab>().Clicked();
             }
         }
