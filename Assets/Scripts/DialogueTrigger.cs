@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class DialogueTrigger : MonoBehaviour
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inky;
+    [SerializeField] private TextAsset inky2;
 
     private bool playerInRange;
     public static int neighborsTalkedTo = 0;
     private GameObject ghost;
-   
+    public static int closets = 0;
+
     private void Awake()
     {
         playerInRange = false;
@@ -43,9 +46,22 @@ public class DialogueTrigger : MonoBehaviour
         {
             visualCue.SetActive(false);
         }
-        if (neighborsTalkedTo >= 5){
+        Scene currentScene = SceneManager.GetActiveScene ();
+        if (neighborsTalkedTo >= 5 && currentScene.name == "MainLevel"){
             ghost.SetActive(true);
         }
+        if (closets >= 5){
+            GameManager.entryDialogue = false;
+            GameManager.EntryDialog();
+            Debug.Log("Entry Dialogue: "+ GameManager.entryDialogue);
+            DialogueManager.GetInstance().EnterDialogueMode(inky2);
+           
+            Debug.Log("hi"+ closets);
+            
+
+        }
+
+        
         
     }
 
@@ -55,14 +71,28 @@ public class DialogueTrigger : MonoBehaviour
         {
             playerInRange = true;
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
+       
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = false;
             
         }
+        if(gameObject.tag == "closet"){
+            
+            closets+=1;
+            Debug.Log(closets);
+        }
+        if(gameObject.tag == "susaxe"){
+            GameManager.SionConfession();
+            GameManager.sionConfession = true;
+        }
+
     }
+
+    
 }

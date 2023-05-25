@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Vector2 teleport;
     public Scene HaroldHouse;
-    
+    public AudioSource audio;
+    public static bool entryDialogue = true;
+    public static bool sionConfession = false;
+    public static bool end = false;
 
     private void Awake()
     {
@@ -25,7 +28,51 @@ public class GameManager : MonoBehaviour
         
         
     }
+    private void Update(){
+        
+        if(entryDialogue){
+            Debug.Log("Entry Dialogue: "+entryDialogue);
+             GameObject.Find("Jed").GetComponent<DialogueTrigger>().enabled = true;
+             GameObject.Find("Wilmer").GetComponent<DialogueTrigger>().enabled = true;
+             GameObject.Find("Jacklyn").GetComponent<DialogueTrigger>().enabled = true;
+             GameObject.Find("Sion").GetComponent<DialogueTrigger>().enabled = true;
+             GameObject.Find("Joshua").GetComponent<DialogueTrigger>().enabled = true;
+             
+            GameObject.Find("Jed").GetComponent<DialogueTrigger2>().enabled = false;
+             
+             GameObject.Find("Sion").GetComponent<DialogueTrigger2>().enabled = false;
+             
+             
+        }else{
+            Debug.Log("Entry Dialogue: "+entryDialogue);
+            GameObject.Find("Jed").GetComponent<DialogueTrigger>().enabled = false;
+             GameObject.Find("Wilmer").GetComponent<DialogueTrigger>().enabled = false;
+             GameObject.Find("Jacklyn").GetComponent<DialogueTrigger>().enabled = false;
+             GameObject.Find("Sion").GetComponent<DialogueTrigger>().enabled = false;
+             GameObject.Find("Joshua").GetComponent<DialogueTrigger>().enabled = false;
+             
+            GameObject.Find("Jed").GetComponent<DialogueTrigger2>().enabled = true;
+             
+             GameObject.Find("Sion").GetComponent<DialogueTrigger2>().enabled = true;
+        }
+        if(sionConfession){
+            GameObject.Find("Jed").GetComponent<DialogueTrigger2>().enabled = false;
+             
+             GameObject.Find("Sion").GetComponent<DialogueTrigger2>().enabled = false;
+            GameObject.Find("Sion").GetComponent<DialogueTrigger3>().enabled = true;
+            end = true;
+        }
+
+    }
+    public static void EntryDialog(){
+        entryDialogue = false;
+    }
+    public static void SionConfession(){
+        sionConfession = true;
+    }
     public IEnumerator LoadScene3(string level, string doorName, bool playerDestroy){
+        audio = GameObject.Find("DoorAudio").GetComponent<AudioSource>();
+        audio.Play(0);
         player = GameObject.FindGameObjectsWithTag("Player")[0];
         if(playerDestroy){
             Destroy(player);

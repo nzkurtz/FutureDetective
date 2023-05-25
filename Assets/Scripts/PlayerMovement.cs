@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private Animator anim;
-
+    public AudioSource footstepsound;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,6 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        footstepsound = GameObject.Find("FootAudio").GetComponent<AudioSource>();
+
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) ){
+            footstepsound.enabled = true;
+        }
+        else{
+            footstepsound.enabled = false;
+        }
         //move input
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");

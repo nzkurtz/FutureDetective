@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
-
+    public static bool end1 = false;
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
 
@@ -25,7 +26,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("Found more than one Dialogue Manager in the scene");
+            Destroy(gameObject);
         }
         instance = this;
     }
@@ -34,9 +35,10 @@ public class DialogueManager : MonoBehaviour
     {
         return instance;
     }
-
+    
     private void Start()
     {
+        
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -64,6 +66,9 @@ public class DialogueManager : MonoBehaviour
         {
             ContinueStory();
         }
+        
+           
+        
     }
 
     public void EnterDialogueMode(TextAsset inky)
@@ -74,7 +79,7 @@ public class DialogueManager : MonoBehaviour
 
         ContinueStory();
     }
-
+   
     private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
@@ -82,7 +87,9 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        
     }
+    
 
     private void ContinueStory()
     {

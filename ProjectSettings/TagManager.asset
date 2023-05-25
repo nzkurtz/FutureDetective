@@ -6,6 +6,8 @@ TagManager:
   tags:
   - neighbor
   - ghost
+  - closet
+  - susaxe
   layers:
   - Default
   - TransparentFX

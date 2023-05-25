@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum SusPerson {Harold, Jacklyn, Sion, Mary, Jed, Wilmer, Joshua, Judie};
 public class Evidence : MonoBehaviour
 {
-    public int notebookIndex;
+    public SusPerson notebookIndex;
     public string evidence;
     public bool UVLight;
     public GameObject UV;
@@ -21,14 +21,14 @@ public class Evidence : MonoBehaviour
         {
             if(!UVLight)
             {
-                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n\n"+evidence);
-                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().Clicked();
+                notebook.tabs[(int)notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n\n"+evidence);
+                notebook.tabs[(int)notebookIndex].GetComponent<NotebookTab>().Clicked();
             }
         }
         else if(UVLight){
             if(UV.activeInHierarchy){
-                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n\n"+evidence);
-                notebook.tabs[notebookIndex].GetComponent<NotebookTab>().Clicked();
+                notebook.tabs[(int)notebookIndex].GetComponent<NotebookTab>().page.evidence.Add("\n\n"+evidence);
+                notebook.tabs[(int)notebookIndex].GetComponent<NotebookTab>().Clicked();
             }
         }
     }

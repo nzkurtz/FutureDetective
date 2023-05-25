@@ -18,7 +18,7 @@ public class PastSceneTeleport : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                SceneManager.LoadScene(level);
-                
+               
             }
         }
         else

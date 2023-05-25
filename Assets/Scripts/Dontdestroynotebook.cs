@@ -8,7 +8,7 @@ public class Dontdestroynotebook : MonoBehaviour
 
     private void Awake()
     {
-         if (notebook == null)
+        if (notebook == null)
         {
             notebook = this;
             DontDestroyOnLoad(gameObject);
