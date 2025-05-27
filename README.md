@@ -42,10 +42,6 @@ FutureDetective invites players to explore a branching narrative, make consequen
 - `Assets/Scenes/` — Scene files for different parts of the game.
 - `Assets/Scripts/` — C# scripts driving game logic and interactions.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - [Unity Technologies](https://unity.com/) for the game engine.
@@ -53,4 +49,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-*Happy detecting!*
